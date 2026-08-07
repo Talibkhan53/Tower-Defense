@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private Transform[] enemyPaths;
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] Transform enemySpawnPosition;
     private float spawnRate = 5f;
@@ -15,13 +16,12 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy() {
         spawnRate -= Time.deltaTime;
 
-        if(spawnRate < 0) {
-
-            
-            Instantiate(enemyPrefab, enemySpawnPosition.position,Quaternion.identity);
-
-            
+        if(spawnRate <= 0) {
+            Debug.Log("Trying to Spawn");
+           GameObject  enemy = Instantiate(enemyPrefab, enemySpawnPosition.position,Quaternion.identity);
+            enemy.GetComponent<EnemyMovement>().SetPath(enemyPaths);
             spawnRate = 5f;
+            Debug.Log("Spawned: " + enemyPrefab.name);
         }
     }
 }

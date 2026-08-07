@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyMovement : MonoBehaviour {
 
@@ -14,8 +10,16 @@ public class EnemyMovement : MonoBehaviour {
         Movement();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("castle")) {
+            end();
+        }
+    }
+
+
     private void Movement() {
         Debug.DrawLine(transform.position, enemyPaths[i].position, Color.red);
+
         // 1. Move the enemy toward the current waypoint target
         Vector2 targetPosition = enemyPaths[i].position;
         transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed*Time.deltaTime);
@@ -34,6 +38,11 @@ public class EnemyMovement : MonoBehaviour {
         }
     }
     private void end() {
+        Debug.Log("GameObject Destroyed");
         Destroy(gameObject);
         }
+
+    public void SetPath(Transform[] path) {
+        enemyPaths = path;
+    }
 }

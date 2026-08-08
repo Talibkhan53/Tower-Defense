@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
 
-    [SerializeField] private Transform[] enemyPaths;
+    private Transform[] enemyPaths;
     [SerializeField] private float speed = 5f;
 
     int i = 0;
@@ -18,7 +18,7 @@ public class EnemyMovement : MonoBehaviour {
 
 
     private void Movement() {
-        Debug.DrawLine(transform.position, enemyPaths[i].position, Color.red);
+        //Debug.DrawLine(transform.position, enemyPaths[i].position, Color.red);
 
         // 1. Move the enemy toward the current waypoint target
         Vector2 targetPosition = enemyPaths[i].position;

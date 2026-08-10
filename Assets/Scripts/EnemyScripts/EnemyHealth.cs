@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class EnemyHealth : MonoBehaviour
 {
     int maxHealth = 100;
@@ -7,14 +6,13 @@ public class EnemyHealth : MonoBehaviour
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Space))
-            TakeDamage();
+            TakeDamage(10);
 
         if (Input.GetKeyDown(KeyCode.S))
             IncreaseHealth();
     }
 
-    void TakeDamage() {
-        int damage = 20;
+    public void TakeDamage(int damage) {
         currentHealth -= damage;
 
         Debug.Log(currentHealth);

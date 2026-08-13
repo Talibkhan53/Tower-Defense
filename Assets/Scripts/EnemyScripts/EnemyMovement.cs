@@ -15,8 +15,6 @@ public class EnemyMovement : MonoBehaviour {
             end();
         }
     }
-
-
     private void Movement() {
         //Debug.DrawLine(transform.position, enemyPaths[i].position, Color.red);
 

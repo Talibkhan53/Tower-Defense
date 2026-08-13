@@ -1,13 +1,12 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Threading;
 using UnityEngine;
 public class CastleDetection : MonoBehaviour
 {
     private float attackTime = 1f;
     private GameObject currentTarget;
-    private int attackDamage = 40;
+    private int attackDamage = 50;
     private List<GameObject> enemiesInRange =  new List<GameObject>();
+
     private void Update() {
         SelectTarget();
         Attack();
@@ -42,8 +41,6 @@ public class CastleDetection : MonoBehaviour
             currentTarget = null;
         }
     }
-
-
     void Attack() {
         attackTime -= Time.deltaTime;
         if (attackTime <= 0) {

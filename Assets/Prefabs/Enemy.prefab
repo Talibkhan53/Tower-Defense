@@ -132,6 +132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41fb2084d531fff469057613fb88b106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  enemyReward: 20
+  economySystem: {fileID: 0}
 --- !u!61 &5833238121707792976
 BoxCollider2D:
   m_ObjectHideFlags: 0
